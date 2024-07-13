@@ -7,7 +7,7 @@
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="theme-color" content="#fff" id="theme-color">
-  <link rel="icon" href="/img/XiaoYue.png">
+  <link rel="icon" href="/images/XiaoYue.png">
   <title>筱月's Blog</title>
   <script>
     // control reverse button
@@ -105,7 +105,7 @@
   <div class="navbar-logo">
     <span class="navbar-logo-main">
       
-      <img class="navbar-logo-img" src="/img/XiaoYue.png">
+      <img class="navbar-logo-img" src="/images/XiaoYue.png">
       
       <span class="navbar-logo-dsc">筱月's Blog</span>
     </span>
@@ -146,7 +146,7 @@
     
     
     <span class="dot"></span>
-    <span>211 words</span>
+    <span>464 words</span>
     
   </div>
   
@@ -167,18 +167,68 @@
 </li>
 <li><p>向量叉积:   $\vec{a} \times \vec{b} &#x3D; (a_xb_y-a_yb_x)$</p>
 <ul>
-<li>应用</li>
-<li>平行四边形面积    $||\vec{a}||\vec{b}|||sin\theta|&#x3D;||\vec{a} \times \vec{b}||$</li>
-<li>向量平行   $\vec{a} \times \vec{b} &#x3D; \vec{0}$</li>
-<li>to-left测试<ul>
+<li><p>几何意义: $\vec{a} \times \vec{b} &#x3D; ||\vec{a}|| ||\vec{b}|| sin\theta $</p>
+</li>
+<li><p>应用</p>
+</li>
+<li><p>平行四边形面积    $||\vec{a}||\vec{b}|||sin\theta|&#x3D;||\vec{a} \times \vec{b}||$</p>
+</li>
+<li><p>向量平行   $\vec{a} \times \vec{b} &#x3D; \vec{0}$</p>
+</li>
+<li><p>to-left测试</p>
+<ul>
 <li>判断点P在有向直线AB左侧&#x2F;右侧&#x2F;上 左右依据的是AB的方向来定</li>
 <li>$\vec{AB} \times \vec{AP} &gt;0 $  P在有向直线AB左侧</li>
 <li>$\vec{AB} \times \vec{AP} &lt;0 $  P在有向直线AB右侧</li>
 <li>$\vec{AB} \times \vec{AP} &#x3D;0 $  P在有向直线AB上</li>
-<li><img src="/.com//P1.png" alt="P1" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="/.com//P1.png" class="lozad post-image"></li>
+</ul>
+<p><img src="/../images/Geometry/P1.png" alt="P1" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="/../images/Geometry/P1.png" class="lozad post-image"></p>
+</li>
+</ul>
+</li>
+<li><p>例题：输入向量$\vec{a}$ 和角度$\theta$ ,输出将 $\vec{a}$逆时针旋转$\theta$ 后的结果</p>
+<ul>
+<li>$ \begin{bmatrix}        cos\theta &amp; -sin\theta \     sin\theta &amp; cos\theta \  \end{bmatrix}$ $ \begin{bmatrix}   a_x \ a_y  \end{bmatrix}$&#x3D;$ \begin{bmatrix}    cos\theta a_x -sin\theta a_y \ sin\theta a_x + cos\theta a_y \end{bmatrix}$</li>
+</ul>
+</li>
+<li><p>例题：输入点P与线段AB，输出点是否在线段上</p>
+<ul>
+<li>点P在AB所在直线上: $\vec{PA} \times \vec{PB} &#x3D; \vec{0} $</li>
+<li>点P在AB之间：$\vec{PA}·\vec{PB} &lt;&#x3D; 0$ (投影)</li>
+</ul>
+</li>
+<li><p>例题:输入两条线段AB与CD，输出两者是否相交</p>
+<ul>
+<li>先判断是否有三点共线，或四点共线情况</li>
+<li>跨立实验</li>
+<li>点A和点B在直线CD的不同侧</li>
+<li>点C和点D在直线AB的不同侧</li>
 </ul>
 </li>
 </ul>
+<h3 id="2-线"><a href="#2-线" class="headerlink" title="2.线"></a>2.线</h3><ul>
+<li>线的表示<ul>
+<li>一般用点和方向向量表示</li>
+</ul>
+</li>
+</ul>
+<p><img src="/../images/Geometry/P2.png" alt="P2" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="/../images/Geometry/P2.png" class="lozad post-image"></p>
+<p><img src="/../images/Geometry/P3.png" alt="P3" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="/../images/Geometry/P3.png" class="lozad post-image"></p>
+<h3 id="3-多边形"><a href="#3-多边形" class="headerlink" title="3.多边形"></a>3.多边形</h3><ul>
+<li><p>表示</p>
+<ul>
+<li><pre><code>struct Polygon&#123;vector&lt;Point&gt; p;&#125;;
+</code></pre>
+</li>
+<li><p>一般按逆时针顺序</p>
+</li>
+<li><p>不一定满足凸性</p>
+</li>
+<li><p>注意第一个点和最后一个点的处理</p>
+</li>
+</ul>
+</li>
+<li><p>面积</p>
 </li>
 </ul>
 
@@ -212,13 +262,13 @@
 
 <div class="card card-content toc-card" id="mobiletoc">
   <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>TOC</div>
-<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%82%B9-%E5%90%91%E9%87%8F"><span class="toc-text">1.点&#x2F;向量</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%82%B9-%E5%90%91%E9%87%8F"><span class="toc-text">1.点&#x2F;向量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%BA%BF"><span class="toc-text">2.线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%A4%9A%E8%BE%B9%E5%BD%A2"><span class="toc-text">3.多边形</span></a></li></ol>
 </div></main>
           <aside class="left-column">
             
             <div class="card card-author">
               
-<img src="/img/XiaoYue.png" class="author-img">
+<img src="/images/XiaoYue.png" class="author-img">
 
 <p class="author-name">筱月</p>
 <p class="author-description"></p>
@@ -245,7 +295,7 @@
   <article class="display-when-two-columns spacer">
     <div class="card card-content toc-card">
       <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>TOC</div>
-<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%82%B9-%E5%90%91%E9%87%8F"><span class="toc-text">1.点&#x2F;向量</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%82%B9-%E5%90%91%E9%87%8F"><span class="toc-text">1.点&#x2F;向量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%BA%BF"><span class="toc-text">2.线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%A4%9A%E8%BE%B9%E5%BD%A2"><span class="toc-text">3.多边形</span></a></li></ol>
     </div>
   </article>
   
@@ -277,7 +327,7 @@
   
   <article class="card card-content toc-card">
     <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>TOC</div>
-<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%82%B9-%E5%90%91%E9%87%8F"><span class="toc-text">1.点&#x2F;向量</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%82%B9-%E5%90%91%E9%87%8F"><span class="toc-text">1.点&#x2F;向量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%BA%BF"><span class="toc-text">2.线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%A4%9A%E8%BE%B9%E5%BD%A2"><span class="toc-text">3.多边形</span></a></li></ol>
   </article>
   
   
