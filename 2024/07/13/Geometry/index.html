@@ -146,7 +146,7 @@
     
     
     <span class="dot"></span>
-    <span>464 words</span>
+    <span>495 words</span>
     
   </div>
   
@@ -163,6 +163,7 @@
 <li>向量长度:    $||\vec{a}||&#x3D;\sqrt{\vec{a}·\vec{a}}$</li>
 <li>向量的夹角:    $cos\theta&#x3D;\frac{\vec{a}·\vec{b}}{||\vec{a}||||\vec{b}||}$</li>
 <li>向量的投影:   $||\vec{a}||cos\theta&#x3D;\frac{\vec{a}·\vec{b}}{||\vec{b}||}$</li>
+<li>向量垂直 : 点积为0</li>
 </ul>
 </li>
 <li><p>向量叉积:   $\vec{a} \times \vec{b} &#x3D; (a_xb_y-a_yb_x)$</p>
@@ -218,18 +219,12 @@
 <li><p>表示</p>
 <ul>
 <li><pre><code>struct Polygon&#123;vector&lt;Point&gt; p;&#125;;
+<pre class="highlight"><span class="line"></span><br><span class="line">  - 一般按逆时针顺序</span><br><span class="line"></span><br><span class="line">  - 不一定满足凸性</span><br><span class="line"></span><br><span class="line">  - 注意第一个点和最后一个点的处理</span><br><span class="line"></span><br><span class="line">- 面积</span><br><span class="line"></span><br><span class="line">  - 分成三角形处理</span><br><span class="line"></span><br><span class="line">### 4.极角排序</span><br><span class="line"></span><br><span class="line">- 按atan2排序，速度快，精度误差</span><br><span class="line"></span><br><span class="line">- ```</span><br></pre>
 </code></pre>
-</li>
-<li><p>一般按逆时针顺序</p>
-</li>
-<li><p>不一定满足凸性</p>
-</li>
-<li><p>注意第一个点和最后一个点的处理</p>
 </li>
 </ul>
 </li>
-<li><p>面积</p>
-</li>
+<li></li>
 </ul>
 
   </div>
